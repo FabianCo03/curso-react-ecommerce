@@ -1,6 +1,6 @@
-import React from "react";
-function NotFound() {
-  return <p className="bg-orange-700 text-white p-4">NotFound</p>;
-}
+import Layout from "../../components/layout";
+const NotFound = () => {
+  return <Layout>NotFound</Layout>;
+};
 
 export default NotFound;

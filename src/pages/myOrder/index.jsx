@@ -1,6 +1,6 @@
-import React from "react";
-function MyOrder() {
-  return <p className="bg-orange-700 text-white p-4">MyOrder</p>;
-}
+import Layout from "../../components/layout";
+const MyOrder = () => {
+  return <Layout>MyOrder</Layout>;
+};
 
 export default MyOrder;

@@ -1,6 +1,7 @@
-import React from "react";
-function Home() {
-  return <p className="bg-orange-700 text-white p-4">Home</p>;
-}
+import Layout from "../../components/layout";
+
+const Home = () => {
+  return <Layout>Home</Layout>;
+};
 
 export default Home;

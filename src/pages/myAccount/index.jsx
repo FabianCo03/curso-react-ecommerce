@@ -1,6 +1,6 @@
-import React from "react";
-function MyAccount() {
-  return <p className="bg-orange-700 text-white p-4">MyAccount</p>;
-}
+import Layout from "../../components/layout";
+const MyAccount = () => {
+  return <Layout>MyAccount</Layout>;
+};
 
 export default MyAccount;
