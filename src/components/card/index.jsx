@@ -1,8 +1,19 @@
 import { useContext } from "react";
+import { PlusCircleIcon } from "@heroicons/react/24/solid";
+
 import { ShoppingCartContext } from "../../context";
 
 const Card = (data) => {
   const context = useContext(ShoppingCartContext);
+
+  const showProduct = (productDetail) => {
+    context.openProductDetail();
+    context.setProductToShow(productDetail);
+  };
+
+  const closeProduct = () => {
+    context.closeProductDetail();
+  };
 
   return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg">
@@ -12,14 +23,15 @@ const Card = (data) => {
         </span>
         <img
           className="w-full h-full object-cover rounded-lg"
+          onClick={() => showProduct(data.data)}
           src={data.data.images[0]}
           alt={data.data.title}
         />
         <div
-          className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
+          className="absolute top-0 right-0 flex justify-center items-center  m-2 p-1"
           onClick={() => context.setCount(context.count + 1)}
         >
-          +
+          <PlusCircleIcon className="h-7 w-7 text-white cursor-pointer hover:text-gray-300" />
         </div>
       </figure>
       <p className="flex justify-between">
