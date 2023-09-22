@@ -9,12 +9,16 @@ const Card = (data) => {
   const showProduct = (productDetail) => {
     context.openProductDetail();
     context.setProductToShow(productDetail);
+    context.closeCheckoutSideMenu();
   };
 
-  const addProductsToCart = (productData) => {
+  const addProductsToCart = (event, productData) => {
+    event.stopPropagation();
     context.setCount(context.count + 1);
     context.setCartProducts([...context.cartProducts, productData]);
-    console.log(context.cartProducts);
+    context.openCheckoutSideMenu();
+    context.closeProductDetail();
+    console.log("CART: ", context.cartProducts);
   };
 
   return (
@@ -31,8 +35,8 @@ const Card = (data) => {
         />
         <div
           className="absolute top-0 right-0 flex justify-center items-center  m-2 p-1"
-          onClick={() => {
-            addProductsToCart(data.data);
+          onClick={(event) => {
+            addProductsToCart(event, data.data);
           }}
         >
           <PlusCircleIcon className="h-7 w-7 text-white cursor-pointer hover:text-gray-300" />
