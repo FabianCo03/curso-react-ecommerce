@@ -22,6 +22,11 @@ export const ShoppingCartProvider = ({ children }) => {
   const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true);
   const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
 
+  // Order Card · Open/Close
+  const [isOrderCardOpen, setIsOrderCardOpen] = useState(false);
+  const openIsOrderCard = () => setIsOrderCardOpen(true);
+  const closeIsOrderCard = () => setIsOrderCardOpen(false);
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -38,6 +43,9 @@ export const ShoppingCartProvider = ({ children }) => {
         isCheckoutSideMenuOpen,
         openCheckoutSideMenu,
         closeCheckoutSideMenu,
+        isOrderCardOpen,
+        openIsOrderCard,
+        closeIsOrderCard,
       }}
     >
       {children}
