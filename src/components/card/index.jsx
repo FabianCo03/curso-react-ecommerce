@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PlusCircleIcon } from "@heroicons/react/24/solid";
+import { PlusCircleIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
 
 import { ShoppingCartContext } from "../../context";
 
@@ -20,6 +20,30 @@ const Card = (data) => {
     context.closeProductDetail();
   };
 
+  // Depende de una variable, renderiza el PlusCircle o el CheckCircle
+  const renderIcon = (id) => {
+    // Filter extrae el elemento chequeado, si ya existe, retorna algo sin lo chequeado (todo menos lo chequeado)
+    const isInCart =
+      context.cartProducts.filter((product) => product.id === id).length > 0;
+
+    if (isInCart) {
+      return (
+        <div className="absolute top-0 right-0 flex justify-center items-center  m-2 p-1">
+          <CheckCircleIcon className="h-7 w-7 text-green-400" />
+        </div>
+      );
+    } else {
+      return (
+        <div
+          className="absolute top-0 right-0 flex justify-center items-center  m-2 p-1"
+          onClick={(event) => addProductsToCart(event, data.data)}
+        >
+          <PlusCircleIcon className="h-7 w-7 text-gray-900 cursor-pointer hover:text-gray-300" />
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg">
       <figure className="relative mb-2 w-full h-4/5">
@@ -32,14 +56,7 @@ const Card = (data) => {
           src={data.data.images[0]}
           alt={data.data.title}
         />
-        <div
-          className="absolute top-0 right-0 flex justify-center items-center  m-2 p-1"
-          onClick={(event) => {
-            addProductsToCart(event, data.data);
-          }}
-        >
-          <PlusCircleIcon className="h-7 w-7 text-white cursor-pointer hover:text-gray-300" />
-        </div>
+        {renderIcon(data.data.id)}
       </figure>
       <p className="flex justify-between">
         <span className="text-sm font-light">{data.data.title}</span>

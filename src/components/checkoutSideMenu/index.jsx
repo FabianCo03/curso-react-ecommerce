@@ -7,7 +7,6 @@ import "./styles.css";
 
 const CheckoutSideMenu = () => {
   const context = useContext(ShoppingCartContext);
-  console.log(context.cartProducts);
 
   return (
     <aside
@@ -26,7 +25,7 @@ const CheckoutSideMenu = () => {
           />
         </div>
       </div>
-      <div className="px-6">
+      <div className="px-6 overflow-y-scroll">
         {context.cartProducts.map((product) => (
           <OrderCard
             key={product.id}
