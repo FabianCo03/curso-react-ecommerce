@@ -5,7 +5,7 @@ import { ShoppingCartContext } from "../../context";
 
 const OrderCard = (props) => {
   const context = useContext(ShoppingCartContext);
-  const { title, imageUrl, price } = props;
+  const { id, title, imageUrl, price, handleDelete } = props;
 
   return (
     <div className="flex justify-between items-center mb-3">
@@ -21,7 +21,10 @@ const OrderCard = (props) => {
       </div>
       <div className="flex items-center gap-2">
         <p className="text-lg font-medium">${price}</p>
-        <XMarkIcon className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-700"></XMarkIcon>
+        <XMarkIcon
+          className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-700"
+          onClick={() => handleDelete(id)}
+        ></XMarkIcon>
       </div>
     </div>
   );

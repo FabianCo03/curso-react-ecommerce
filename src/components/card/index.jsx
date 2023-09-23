@@ -29,7 +29,7 @@ const Card = (data) => {
     if (isInCart) {
       return (
         <div className="absolute top-0 right-0 flex justify-center items-center  m-2 p-1">
-          <CheckCircleIcon className="h-7 w-7 text-green-400" />
+          <CheckCircleIcon className="h-7 w-7 text-green-500" />
         </div>
       );
     } else {
@@ -38,7 +38,7 @@ const Card = (data) => {
           className="absolute top-0 right-0 flex justify-center items-center  m-2 p-1"
           onClick={(event) => addProductsToCart(event, data.data)}
         >
-          <PlusCircleIcon className="h-7 w-7 text-gray-900 cursor-pointer hover:text-gray-300" />
+          <PlusCircleIcon className="h-7 w-7 text-gray-950 cursor-pointer hover:text-gray-700" />
         </div>
       );
     }
