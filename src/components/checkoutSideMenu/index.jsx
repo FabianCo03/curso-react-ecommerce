@@ -24,9 +24,12 @@ const CheckoutSideMenu = () => {
       totalProducts: context.cartProducts.length,
       totalPrice: totalPrice(context.cartProducts),
     };
-    context.setOrder([...context.order, orderToAdd]);
-    console.log(orderToAdd);
-    context.setCartProducts([]);
+    if (context.cartProducts.length == 0) {
+      alert("Te faltan agregar productos");
+    } else {
+      context.setOrder([...context.order, orderToAdd]);
+      context.setCartProducts([]);
+    }
   };
 
   return (
