@@ -6,10 +6,10 @@ import CheckoutSideMenu from "../../components/checkoutSideMenu";
 import Home from "../home";
 import MyAccount from "../myAccount";
 import MyOrder from "../myOrder";
-import MyOrders from "../MyOrders";
+import MyOrders from "../myOrders";
 import NavBar from "../../components/navBar";
-import NotFound from "../NotFound";
-import SignIn from "../SignIn";
+import NotFound from "../notFound";
+import SignIn from "../signIn";
 
 const AppRoutes = () => {
   let routes = useRoutes([
