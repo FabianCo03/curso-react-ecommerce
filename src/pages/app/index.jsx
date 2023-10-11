@@ -10,6 +10,7 @@ import MyOrders from "../myOrders";
 import NavBar from "../../components/navBar";
 import NotFound from "../notFound";
 import SignIn from "../signIn";
+import Register from "../register";
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -52,6 +53,10 @@ const AppRoutes = () => {
     {
       path: "/sign-in",
       element: <SignIn />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
     },
     {
       path: "/my-orders/last",

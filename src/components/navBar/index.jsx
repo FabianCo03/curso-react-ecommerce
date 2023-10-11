@@ -87,14 +87,22 @@ const NavBar = () => {
             My Account
           </NavLink>
         </li>
-        {/* <li>
+        <li>
+          <NavLink
+            to="/register"
+            className={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Register
+          </NavLink>
+        </li>
+        <li>
           <NavLink
             to="/sign-in"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Sign In
           </NavLink>
-        </li> */}
+        </li>
         <li className="flex">
           <ShoppingCartIcon
             className="h-6 w-6 text-black cursor-pointer"
