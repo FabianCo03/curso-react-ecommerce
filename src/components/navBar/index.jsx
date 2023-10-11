@@ -7,6 +7,7 @@ import { ShoppingCartContext } from "../../context";
 const NavBar = () => {
   const activeStyle = "underline underline-offset-4";
   const context = useContext(ShoppingCartContext);
+
   return (
     <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light top-0 bg-gray-300">
       <ul className="flex items-center gap-3">
@@ -16,6 +17,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/"
+            onClick={() => context.setSearchByCategory()}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             All
@@ -24,6 +26,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/clothes"
+            onClick={() => context.setSearchByCategory("clothes")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Clothes
@@ -32,6 +35,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/electronics"
+            onClick={() => context.setSearchByCategory("electronics")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Electronics
@@ -40,6 +44,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/furnitures"
+            onClick={() => context.setSearchByCategory("furnitures")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Furnitures
@@ -48,6 +53,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/toys"
+            onClick={() => context.setSearchByCategory("toys")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Toys
@@ -56,6 +62,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/others"
+            onClick={() => context.setSearchByCategory("others")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Others
@@ -66,18 +73,18 @@ const NavBar = () => {
         <li className="text-black/60">fabianormo@outlook.com</li>
         <li>
           <NavLink
-            to="/my-account"
-            className={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            My Account
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
             to="/my-orders"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             My Orders
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/my-account"
+            className={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            My Account
           </NavLink>
         </li>
         <li>
@@ -93,7 +100,7 @@ const NavBar = () => {
             className="h-6 w-6 text-black cursor-pointer"
             onClick={() => context.openCheckoutSideMenu()}
           />
-          <div>{context.count}</div>
+          <div>{context.cartProducts.length}</div>
         </li>
       </ul>
     </nav>
