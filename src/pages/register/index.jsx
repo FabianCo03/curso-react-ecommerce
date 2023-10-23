@@ -1,4 +1,4 @@
-import Layout from "../../components/layout";
+import Layout from '../../components/layout'
 
 const SignIn = () => {
   return (
@@ -43,7 +43,7 @@ const SignIn = () => {
         </form>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default SignIn;
+export default SignIn

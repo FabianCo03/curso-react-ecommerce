@@ -1,20 +1,20 @@
-import { XMarkIcon } from "@heroicons/react/24/solid";
-import { useContext } from "react";
+import { XMarkIcon } from '@heroicons/react/24/solid'
+import { useContext } from 'react'
 
-import { ShoppingCartContext } from "../../context";
-import "./styles.css";
+import { ShoppingCartContext } from '../../context'
+import './styles.css'
 
 const ProductDetail = () => {
-  const context = useContext(ShoppingCartContext);
+  const context = useContext(ShoppingCartContext)
 
   // en caso de que context.productToShow sea falsy, no manda errores sino un objeto vacío
-  const { title, price, description, images } = context.productToShow || {};
-  const firstImage = images ? images[0] : null;
+  const { title, price, description, images } = context.productToShow || {}
+  const firstImage = images ? images[0] : null
 
   return (
     <aside
       className={`${
-        context.isProductDetailOpen ? "flex" : "hidden"
+        context.isProductDetailOpen ? 'flex' : 'hidden'
       } product-detail flex flex-col fixed right-0 border border-black rounded-lg bg-white`}
     >
       <div className="flex justify-between items-center p-6">
@@ -23,7 +23,7 @@ const ProductDetail = () => {
           <XMarkIcon
             onClick={() => context.closeProductDetail()}
             className={`${
-              context.isProductDetailOpen ? "flex" : "hidden"
+              context.isProductDetailOpen ? 'flex' : 'hidden'
             } h-6 w-6 text-red-700 cursor-pointer`}
           />
         </div>
@@ -41,7 +41,7 @@ const ProductDetail = () => {
         <span className="font-light text-sm">{description}</span>
       </p>
     </aside>
-  );
-};
+  )
+}
 
-export default ProductDetail;
+export default ProductDetail

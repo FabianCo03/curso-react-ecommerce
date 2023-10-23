@@ -1,78 +1,78 @@
-import { BrowserRouter, useRoutes } from "react-router-dom";
+import { BrowserRouter, useRoutes } from 'react-router-dom'
 
-import "../app/App.css";
-import { ShoppingCartProvider } from "../../context";
-import CheckoutSideMenu from "../../components/checkoutSideMenu";
-import Home from "../home";
-import MyAccount from "../myAccount";
-import MyOrder from "../myOrder";
-import MyOrders from "../myOrders";
-import NavBar from "../../components/navBar";
-import NotFound from "../notFound";
-import SignIn from "../signIn";
-import Register from "../register";
+import '../app/App.css'
+import { ShoppingCartProvider } from '../../context'
+import CheckoutSideMenu from '../../components/checkoutSideMenu'
+import Home from '../home'
+import MyAccount from '../myAccount'
+import MyOrder from '../myOrder'
+import MyOrders from '../myOrders'
+import NavBar from '../../components/navBar'
+import NotFound from '../notFound'
+import SignIn from '../signIn'
+import Register from '../register'
 
 const AppRoutes = () => {
   let routes = useRoutes([
     {
-      path: "/",
+      path: '/',
       element: <Home />,
     },
     {
-      path: "/clothes",
+      path: '/clothes',
       element: <Home />,
     },
     {
-      path: "/electronics",
+      path: '/electronics',
       element: <Home />,
     },
     {
-      path: "/furnitures",
+      path: '/furnitures',
       element: <Home />,
     },
     {
-      path: "/toys",
+      path: '/toys',
       element: <Home />,
     },
     {
-      path: "/others",
+      path: '/others',
       element: <Home />,
     },
     {
-      path: "/my-account",
+      path: '/my-account',
       element: <MyAccount />,
     },
     {
-      path: "/my-order",
+      path: '/my-order',
       element: <MyOrder />,
     },
     {
-      path: "/my-orders",
+      path: '/my-orders',
       element: <MyOrders />,
     },
     {
-      path: "/sign-in",
+      path: '/sign-in',
       element: <SignIn />,
     },
     {
-      path: "/register",
+      path: '/register',
       element: <Register />,
     },
     {
-      path: "/my-orders/last",
+      path: '/my-orders/last',
       element: <MyOrder />,
     },
     {
-      path: "/my-orders/:id",
+      path: '/my-orders/:id',
       element: <MyOrder />,
     },
     {
-      path: "/*",
+      path: '/*',
       element: <NotFound />,
     },
-  ]);
-  return routes;
-};
+  ])
+  return routes
+}
 
 const App = () => {
   return (
@@ -83,7 +83,7 @@ const App = () => {
         <CheckoutSideMenu />
       </BrowserRouter>
     </ShoppingCartProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

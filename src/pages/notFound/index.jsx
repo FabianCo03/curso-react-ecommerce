@@ -1,7 +1,7 @@
-import Layout from "../../components/layout";
+import Layout from '../../components/layout'
 
 const NotFound = () => {
-  return <Layout>NotFound</Layout>;
-};
+  return <Layout>NotFound</Layout>
+}
 
-export default NotFound;
+export default NotFound

@@ -1,4 +1,4 @@
-import Layout from "../../components/layout";
+import Layout from '../../components/layout'
 
 const MyAccount = () => {
   return (
@@ -22,7 +22,7 @@ const MyAccount = () => {
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default MyAccount;
+export default MyAccount

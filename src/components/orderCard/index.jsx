@@ -1,19 +1,19 @@
-import { XMarkIcon } from "@heroicons/react/24/solid";
-import { useContext } from "react";
+import { XMarkIcon } from '@heroicons/react/24/solid'
+import { useContext } from 'react'
 
-import { ShoppingCartContext } from "../../context";
+import { ShoppingCartContext } from '../../context'
 
 const OrderCard = (props) => {
-  const context = useContext(ShoppingCartContext);
-  const { id, title, imageUrl, price, handleDelete } = props;
-  let renderXMarkIcon;
+  const context = useContext(ShoppingCartContext)
+  const { id, title, imageUrl, price, handleDelete } = props
+  let renderXMarkIcon
   if (handleDelete) {
     renderXMarkIcon = (
       <XMarkIcon
         className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-700"
         onClick={() => handleDelete(id)}
       ></XMarkIcon>
-    );
+    )
   }
 
   return (
@@ -33,7 +33,7 @@ const OrderCard = (props) => {
         {renderXMarkIcon}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default OrderCard;
+export default OrderCard

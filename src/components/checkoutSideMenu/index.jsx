@@ -1,42 +1,42 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { XMarkIcon } from '@heroicons/react/24/solid'
 
-import { ShoppingCartContext } from "../../context";
-import { totalPrice } from "../../utils";
-import OrderCard from "../orderCard";
-import "./styles.css";
+import { ShoppingCartContext } from '../../context'
+import { totalPrice } from '../../utils'
+import OrderCard from '../orderCard'
+import './styles.css'
 
 const CheckoutSideMenu = () => {
-  const context = useContext(ShoppingCartContext);
+  const context = useContext(ShoppingCartContext)
 
   const handleDelete = (id) => {
     const filteredProducts = context.cartProducts.filter(
-      (product) => product.id != id
-    );
-    context.setCartProducts(filteredProducts);
-  };
+      (product) => product.id != id,
+    )
+    context.setCartProducts(filteredProducts)
+  }
 
   const handleCheckout = () => {
     const orderToAdd = {
-      date: "01.02.2023",
+      date: '01.02.2023',
       products: context.cartProducts,
       totalProducts: context.cartProducts.length,
       totalPrice: totalPrice(context.cartProducts),
-    };
-    if (context.cartProducts.length == 0) {
-      alert("Te faltan agregar productos");
-    } else {
-      context.setOrder([...context.order, orderToAdd]);
-      context.setCartProducts([]);
-      context.setSearchByTitle(null);
     }
-  };
+    if (context.cartProducts.length == 0) {
+      alert('Te faltan agregar productos')
+    } else {
+      context.setOrder([...context.order, orderToAdd])
+      context.setCartProducts([])
+      context.setSearchByTitle(null)
+    }
+  }
 
   return (
     <aside
       className={`${
-        context.isCheckoutSideMenuOpen ? "flex" : "hidden"
+        context.isCheckoutSideMenuOpen ? 'flex' : 'hidden'
       } checkout-side-menu flex flex-col fixed right-0 border border-black rounded-lg bg-white`}
     >
       <div className="flex justify-between items-center p-6">
@@ -45,7 +45,7 @@ const CheckoutSideMenu = () => {
           <XMarkIcon
             onClick={() => context.closeCheckoutSideMenu()}
             className={`${
-              context.isCheckoutSideMenuOpen ? "flex" : "hidden"
+              context.isCheckoutSideMenuOpen ? 'flex' : 'hidden'
             } h-6 w-6 text-red-700 cursor-pointer`}
           />
         </div>
@@ -69,7 +69,7 @@ const CheckoutSideMenu = () => {
             ${totalPrice(context.cartProducts)}
           </span>
         </p>
-        <Link to={"my-orders/last"}>
+        <Link to={'my-orders/last'}>
           <button
             className="w-full bg-gray-900 py-3 text-gray-50 rounded-lg"
             onClick={() => handleCheckout()}
@@ -79,7 +79,7 @@ const CheckoutSideMenu = () => {
         </Link>
       </div>
     </aside>
-  );
-};
+  )
+}
 
-export default CheckoutSideMenu;
+export default CheckoutSideMenu

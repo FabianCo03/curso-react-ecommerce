@@ -1,37 +1,37 @@
-import { useContext } from "react";
-import { PlusCircleIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
+import { useContext } from 'react'
+import { PlusCircleIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 
-import { ShoppingCartContext } from "../../context";
+import { ShoppingCartContext } from '../../context'
 
 const Card = (data) => {
-  const context = useContext(ShoppingCartContext);
+  const context = useContext(ShoppingCartContext)
 
   const showProduct = (productDetail) => {
-    context.openProductDetail();
-    context.setProductToShow(productDetail);
-    context.closeCheckoutSideMenu();
-  };
+    context.openProductDetail()
+    context.setProductToShow(productDetail)
+    context.closeCheckoutSideMenu()
+  }
 
   const addProductsToCart = (event, productData) => {
-    event.stopPropagation();
-    context.setCount(context.count + 1);
-    context.setCartProducts([...context.cartProducts, productData]);
-    context.openCheckoutSideMenu();
-    context.closeProductDetail();
-  };
+    event.stopPropagation()
+    context.setCount(context.count + 1)
+    context.setCartProducts([...context.cartProducts, productData])
+    context.openCheckoutSideMenu()
+    context.closeProductDetail()
+  }
 
   // Depende de una variable, renderiza el PlusCircle o el CheckCircle
   const renderIcon = (id) => {
     // Filter extrae el elemento chequeado, si ya existe, retorna algo sin lo chequeado (todo menos lo chequeado)
     const isInCart =
-      context.cartProducts.filter((product) => product.id === id).length > 0;
+      context.cartProducts.filter((product) => product.id === id).length > 0
 
     if (isInCart) {
       return (
         <div className="absolute top-0 right-0 flex justify-center items-center  m-2 p-1">
           <CheckCircleIcon className="h-7 w-7 text-green-500" />
         </div>
-      );
+      )
     } else {
       return (
         <div
@@ -40,9 +40,9 @@ const Card = (data) => {
         >
           <PlusCircleIcon className="h-7 w-7 text-gray-950 cursor-pointer hover:text-gray-50" />
         </div>
-      );
+      )
     }
-  };
+  }
 
   return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg">
@@ -63,6 +63,6 @@ const Card = (data) => {
         <span className="text-lg font-medium">${data.data.price}</span>
       </p>
     </div>
-  );
-};
-export default Card;
+  )
+}
+export default Card

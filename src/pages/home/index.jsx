@@ -1,21 +1,21 @@
-import { useContext } from "react";
-import Layout from "../../components/layout";
-import Card from "../../components/card";
-import ProductDetail from "../../components/productDetail";
-import { ShoppingCartContext } from "../../context";
+import { useContext } from 'react'
+import Layout from '../../components/layout'
+import Card from '../../components/card'
+import ProductDetail from '../../components/productDetail'
+import { ShoppingCartContext } from '../../context'
 
 function Home() {
-  const context = useContext(ShoppingCartContext);
+  const context = useContext(ShoppingCartContext)
 
   const renderView = () => {
     if (context.filteredItems?.length > 0) {
       return context.filteredItems?.map((item) => (
         <Card key={item.id} data={item} />
-      ));
+      ))
     } else {
-      return <div>No hay coincidencias</div>;
+      return <div>No hay coincidencias</div>
     }
-  };
+  }
 
   return (
     <Layout>
@@ -33,7 +33,7 @@ function Home() {
       </div>
       <ProductDetail />
     </Layout>
-  );
+  )
 }
 
-export default Home;
+export default Home
